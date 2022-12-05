@@ -29,6 +29,9 @@ public class AboutRent extends BasePage {
     private final By buttonYes = By.xpath("//*[@id='root']/div/div[2]/div[5]/div[2]/button[2]");
     // Блок с текстом об успешном создании заказа
     private final By fieldSuccessfulResult = By.xpath("//*[@id='root']/div/div[2]/div[5]/div[1]");
+    //Кнопка "заказать"
+    private final By buttonOrder = By.xpath("//*[@id='root']/div/div[2]/div[3]/button[2]");
+
 
     public void chooseDateInField(){
         driver.findElement(fieldDate).click();
@@ -59,5 +62,9 @@ public class AboutRent extends BasePage {
     public void checkSuccessfulOrder() {
         String actual = driver.findElement(fieldSuccessfulResult).getText();
         Assert.assertNotEquals("Текст сходится. Пользователь остался на моменте подтверждения заказа", "Хотите оформить заказ?\n" + " ", actual);
+    }
+
+    public void clickButtonOrder(){
+        driver.findElement(buttonOrder).click();
     }
 }

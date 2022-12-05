@@ -46,7 +46,7 @@ public class CreateOrder extends BaseTest {
         aboutRent.chooseBlackColorScooter();
         aboutRent.chooseGreyColorScooter();
         aboutRent.textFieldComment("Оплата безНал");
-        firstPage.clickDownButton();
+        aboutRent.clickButtonOrder();
         aboutRent.clickButtonYes();
         aboutRent.checkSuccessfulOrder();
     }

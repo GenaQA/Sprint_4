@@ -4,7 +4,7 @@ import Page.BasePage.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.devtools.v105.page.Page;
+
 
 public class FirstPage extends BasePage {
     int number;
@@ -15,7 +15,7 @@ public class FirstPage extends BasePage {
     //Кнопка "Заказать" в шапке
     private final By upButton = By.xpath("//*[@class='Button_Button__ra12g']");
     //Кнопка "Заказать" в теле
-    private final By downButton = By.xpath("//*[@class='Button_Button__ra12g Button_Middle__1CSJM']");
+    private final By downButton = By.xpath("//*[@id='root']/div/div/div[4]/div[2]/div[5]/button");
     //Кнопка "да мы все привыкли" согласение на куки
     private final By clickAcceptCoockie = By.xpath("//*[@id='rcc-confirm-button']");
 
@@ -44,7 +44,12 @@ public class FirstPage extends BasePage {
     }
 
     public void clickAcceptCookie(){
-        driver.findElement(clickAcceptCoockie).click();
+        try {
+            driver.findElement(clickAcceptCoockie).click();
+        } catch (Exception e) {
+            System.out.println("Кнопка, для куки отсутствует");
+        }
+
     }
 
     public void clickUpButton(){
